@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Sign Language & Emotion Detection - AI Model</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-bar">
+                <div class="logo">
+                    <span class="logo-icon">🔮</span>
+                    <span class="logo-text">ISL Detector</span>
+                </div>
+                <nav class="nav-links">
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#demo" class="nav-link">Demo</a>
+                    <a href="#contributors" class="nav-link">Team</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="gradient-orb gradient-orb-1"></div>
+            <div class="gradient-orb gradient-orb-2"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Real-Time AI Detection
+                </h1>
+                <p class="hero-subtitle">
+                    Detect Indian Sign Language, emotions, age & gender with cutting-edge machine learning
+                </p>
+                <button class="btn btn-primary btn-lg" onclick="document.getElementById('demo').scrollIntoView({behavior: 'smooth'})">
+                    Start Detection
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Powerful Features</h2>
+                <p>Our advanced ML model detects multiple attributes simultaneously</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">🤟</div>
+                    </div>
+                    <h3>Sign Language Detection</h3>
+                    <p>Accurately recognizes Indian Sign Language gestures with high precision</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">😊</div>
+                    </div>
+                    <h3>Emotion Recognition</h3>
+                    <p>Identifies facial expressions and emotional states in real-time</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">👤</div>
+                    </div>
+                    <h3>Age & Gender</h3>
+                    <p>Precise age estimation and gender classification from facial analysis</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">⚡</div>
+                    </div>
+                    <h3>Real-Time Processing</h3>
+                    <p>Lightning-fast inference with minimal latency on single video stream</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">🎯</div>
+                    </div>
+                    <h3>High Accuracy</h3>
+                    <p>State-of-the-art deep learning models for reliable results</p>
+                </div>
+                <div class="feature-card coming-soon">
+                    <div class="feature-header">
+                        <div class="feature-icon">🚀</div>
+                    </div>
+                    <h3>More Coming Soon</h3>
+                    <p>Exciting new features in development - stay tuned for updates</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <div class="section-header">
+                <h2>Live Detection Demo</h2>
+                <p>Experience real-time AI detection in action</p>
+            </div>
+            <div class="demo-wrapper">
+                <div class="demo-main">
+                    <div class="video-container">
+                        <video id="videoInput" autoplay playsinline muted></video>
+                        <div class="video-overlay"></div>
+                    </div>
+
+                    <div class="controls-section">
+                        <div class="control-group">
+                            <button id="startBtn" class="btn btn-primary btn-block">
+                                <span class="btn-icon">🎥</span> Start Camera
+                            </button>
+                            <button id="stopBtn" class="btn btn-secondary btn-block" disabled>
+                                <span class="btn-icon">⏹️</span> Stop Camera
+                            </button>
+                        </div>
+
+                        <div class="control-group">
+                            <select id="modelSelect" class="select-input">
+                                <option value="all">All Features</option>
+                                <option value="isl">Sign Language Only</option>
+                                <option value="emotion">Emotion Only</option>
+                                <option value="age_gender">Age & Gender Only</option>
+                            </select>
+                            <button id="uploadBtn" class="btn btn-secondary btn-block">
+                                <span class="btn-icon">📸</span> Upload Image
+                            </button>
+                            <input type="file" id="imageUpload" accept="image/*" style="display:none;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-container">
+                    <div class="results-header">
+                        <h3>Detection Results</h3>
+                        <div class="status-indicator"></div>
+                    </div>
+
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <span class="result-label">Sign Language</span>
+                            <span class="result-value" id="islResult">-</span>
+                        </div>
+                        <div class="result-card">
+                            <span class="result-label">Emotion</span>
+                            <span class="result-value" id="emotionResult">-</span>
+                        </div>
+                        <div class="result-card">
+                            <span class="result-label">Age</span>
+                            <span class="result-value" id="ageResult">-</span>
+                        </div>
+                        <div class="result-card">
+                            <span class="result-label">Gender</span>
+                            <span class="result-value" id="genderResult">-</span>
+                        </div>
+                        <div class="result-card">
+                            <span class="result-label">Confidence</span>
+                            <span class="result-value" id="confidenceResult">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Contributors -->
+    <footer id="contributors" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-header">
+                    <h2>Meet Our Team</h2>
+                    <p>Talented developers and researchers behind this AI model</p>
+                </div>
+
+                <div class="contributors-grid">
+                    <div class="contributor-item">
+                        <img src="/public/c1.jpeg" alt="Team Member 1" class="contributor-img">
+                        <h4>DEV CHANSORIA</h4>
+                    </div>
+                    <div class="contributor-item">
+                        <img src="/public/c2.jpeg" alt="Team Member 2" class="contributor-img">
+                        <h4>ANIKET MEENA</h4>
+                    </div>
+                    <div class="contributor-item">
+                        <img src="/public/c3.jpeg" alt="Team Member 3" class="contributor-img">
+                        <h4>TANISHKA</h4>
+                    </div>
+                    <div class="contributor-item">
+                        <img src="/public/c4.jpeg" alt="Team Member 4" class="contributor-img">
+                        <h4>SAVITA</h4>
+                    </div>
+                </div>
+
+                <div class="footer-divider"></div>
+                <p class="copyright">© 2025 Indian Sign Language & Emotion Detection. Built with AI expertise.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
